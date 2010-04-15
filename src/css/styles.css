@@ -1,0 +1,64 @@
+body, html {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+    outline-style: none;
+}
+
+form {
+    line-height: 1.5em;
+}
+
+fieldset {
+    padding: 1em;
+    border: 1px solid #eee;
+    -moz-border-radius: 1em;
+}
+
+input[type=search] {
+    font-size: 1.3em;
+}
+
+#search_terms {
+    padding: 0;
+    font-size: 1.3em;
+}
+#search_terms li {
+    list-style: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+#search_terms li a {
+    display: block;
+    text-decoration: none;
+    padding: 3px;
+}
+
+#search_terms li a:hover {
+    background: #eee;
+}
+
+#search_terms li span.close {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: url(close.png) no-repeat;
+    cursor: pointer;
+}
+
+a img {
+    border: 0;
+    vertical-align: middle;
+}
+
+#search_results li.result {
+    list-style: none;
+    padding: 5px;
+}
+
+#search_results li.result:hover {
+    background: #eee;
+}

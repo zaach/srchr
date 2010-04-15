@@ -4,41 +4,61 @@
 	<meta charset="utf-8">
 	<title>srchr</title>
 	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="css/aristo/jquery-ui-1.8rc3.custom.css" type="text/css" media="screen" charset="utf-8" />
 </head>
 <body>
 	<header>
 		<h1>srchr</h1>
+	  <form>
 		<fieldset>
+		  <legend id="sources">
+  				<input type="checkbox" id="enable_flickr" value="1" checked/>
+  				<label for="enable_flickr">Flickr</label>
+
+  				<input type="checkbox" id="enable_yahoo" value="1" />
+  				<label for="enable_yahoo">Yahoo! Search</label>
+
+  				<input type="checkbox" id="enable_upcoming" value="1" />
+  				<label for="enable_upcoming">Upcoming</label>
+  		</legend>
+  		
 			<input type="search" name="search" id="search" />
-			<input type="submit" id="search_submit" />
-		</fieldset>
-		
-		<fieldset>
-			<ul>
-				<li>
-					<input type="checkbox" name="flickr" value="1" />
-					<label for="flickr">Flickr</label>
-				</li>
-				<li>
-					<input type="checkbox" name="yahoo" value="1" />
-					<label for="flickr">Yahoo! Search</label>
-				</li>
-				<li>
-					<input type="checkbox" name="upcoming" value="1" />
-					<label for="flickr">Upcoming</label>
-				</li>
-			</ul>
-		</fieldset>
+			<button id="search_submit">Find it!</button>
+  	</fieldset>
+		</form>
 	</header>
 	
 	<ul id="search_terms">
 	</ul>
+
+	<div id="search_results">
+	  <ul id="tabs">
+    </ul>
+    
+	</div>
 	
-	<ul id="search_results">
-	</ul>
+	<script type="text/x-mustache" id="flickr_templ">
+	  {{#photo}}
+    	<li class="result flickr"><a href="{{url}}"><img src="http://farm{{farm}}.static.flickr.com/{{server}}/{{id}}_{{secret}}_m.jpg" alt="{{title}}" /></a></li>
+  	{{/photo}}
+	</script>
 	
-	<!-- use google-hosted javascript library of your choice -->
+	<script type="text/x-mustache" id="yahoo_templ">
+	  {{#result}}
+    	<li class="result yahoo"><p><a href="{{url}}">{{{title}}}</a> - {{{abstract}}}</p></li>
+  	{{/result}}
+	</script>
+	
+	<script type="text/x-mustache" id="upcoming_templ">
+	  {{#event}}
+    	<li class="result upcoming"><p><a href="{{url}}">{{name}}</a> - {{{description}}}</p></li>
+  	{{/event}}
+	</script>
+	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="js/jquery-ui-1.8rc3.custom.min.js"></script>
+	<script src="js/jquery.yql.js"></script>
+	<script src="js/jquery.mustache.js"></script>
 	<script src="js/srchr.js"></script>
 </body>
 </html>
